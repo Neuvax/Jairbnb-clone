@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({
         }, 300)
     }, [disabled, onClose])
 
-    const handeSubmit = useCallback(() => {
+    const handleSubmit = useCallback(() => {
         if (disabled) {
             return;
         }
@@ -169,18 +169,20 @@ const Modal: React.FC<ModalProps> = ({
                                         w-full
                                     "
                                 >
-                                    <Button 
-                                        disabled={disabled}
-                                        label={secondaryActionLabel}
-                                        onClick={handeSubmit}
-                                    />
+                                    {secondaryAction && secondaryActionLabel && (
+                                        <Button 
+                                            outline
+                                            disabled={disabled}
+                                            label={secondaryActionLabel}
+                                            onClick={handleSecondaryAction}
+                                        />
+                                    )}
                                     <Button 
                                         disabled={disabled}
                                         label={actionLabel}
-                                        onClick={handeSubmit}
+                                        onClick={handleSubmit}
                                     />
                                 </div>
-
                             </div>
                         </div>
                     </div>
