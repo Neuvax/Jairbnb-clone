@@ -30,15 +30,15 @@ const RegisterModal = () => {
           name: '',
           email: '',
           password: ''
-        },
+        },  
       });
-
+      
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-        
+ 
         axios.post('/api/register', data)
             .then(() => {
-                registerModal.onClose();
+                registerModal.onClose();    
             })
             .catch((error) => {
                 console.log(error);
@@ -49,7 +49,7 @@ const RegisterModal = () => {
     }
 
     const bodyContent = (
-        <div className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={onSubmit}>
             <Heading 
             title= "Welcome to Airbnb"
             subtitle= "Create an account to get started"
@@ -79,7 +79,7 @@ const RegisterModal = () => {
                 errors={errors}
                 required
             />
-        </div>
+        </form>
     )
 
     return (
