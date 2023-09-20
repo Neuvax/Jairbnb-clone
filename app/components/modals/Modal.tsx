@@ -87,6 +87,7 @@ const Modal: React.FC<ModalProps> = ({
                     className="
                         relative
                         w-full
+                        max-h-screen
                         md:w-4/6
                         lg:w-3/6
                         xl:w-2/5
@@ -121,6 +122,7 @@ const Modal: React.FC<ModalProps> = ({
                                 flex-col
                                 w-full
                                 bg-white
+                                overflow-y-scroll
                                 outline-none
                                 focus:outline-none
                             "

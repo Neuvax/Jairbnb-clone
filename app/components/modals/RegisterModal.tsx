@@ -4,7 +4,6 @@ import axios from 'axios';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FcGoogle,  } from 'react-icons/fc';
 import { AiFillApple } from 'react-icons/ai';
-import { CiMail } from 'react-icons/ci';
 import { BsPhone } from 'react-icons/bs';
 import { useCallback, useState } from 'react';
 import {
