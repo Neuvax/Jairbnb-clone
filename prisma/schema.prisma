@@ -32,13 +32,13 @@ model Account {
   type String
   provider String
   providerAccountId String
-  refreshToken String? @db.String
-  accessToken String? @db.String 
-  accessTokenExpires Int?
-  tokenType String?
+  refresh_token String? @db.String
+  access_token String? @db.String 
+  expires_at Int?
+  token_type String?
   scope String?
-  idToken String? @db.String
-  sessionState String?
+  id_token String? @db.String
+  session_state String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
