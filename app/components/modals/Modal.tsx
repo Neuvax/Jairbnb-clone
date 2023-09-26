@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from 'react-icons/io';
@@ -62,6 +62,17 @@ const Modal: React.FC<ModalProps> = ({
         secondaryAction();
     }, [disabled, secondaryAction]);
 
+    const handleBackgroundClick = useCallback(() => {
+        if (disabled) {
+            return;
+        }
+
+        setShowModal(false);
+        setTimeout(() => {
+            onClose();
+        }, 300)
+    }, [disabled, onClose]);
+
     if (!isOpen) {
         return null;
     }
@@ -81,7 +92,8 @@ const Modal: React.FC<ModalProps> = ({
                     outline-none
                     focus:outline-none
                     bg-neutral-800/70
-                "   
+                "
+                onClick={handleBackgroundClick}
             >
                 <div
                     className="
@@ -96,6 +108,7 @@ const Modal: React.FC<ModalProps> = ({
                         lg:h-auto
                         md:h-auto
                     "
+                    onClick={(e) => e.stopPropagation()}
                 >
                     {/* CONTENT */}
                     <div
@@ -138,7 +151,7 @@ const Modal: React.FC<ModalProps> = ({
                                 "
                             >
                                 <button
-                                onClick={handleClose}
+                                    onClick={handleClose}
                                     className="
                                         p-1
                                         boreder-0
@@ -193,5 +206,5 @@ const Modal: React.FC<ModalProps> = ({
         </>
     );
 }
- 
+
 export default Modal;
